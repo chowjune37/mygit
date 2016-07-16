@@ -1,0 +1,9 @@
+org 0100h
+jmp LABEL_BEGIN
+
+[SECTION .gdt]
+
+[SECTION .b16]
+[BITS 16]
+LABEL_BEGIN:
+	jmp $
