@@ -2,6 +2,9 @@ org 0100h
 jmp LABEL_BEGIN
 %include "pm.inc"
 
+BasePageDir	equ	200000h
+BasePageTbl	equ	201000h
+
 [SECTION .gdt]
 LABEL_GDT:		Descriptor	0,		0,		0
 LABEL_DESC_CODE32:	Descriptor	0,		Code32Len - 1,	4098h
@@ -10,6 +13,8 @@ LABEL_DESC_STACK32:	Descriptor	0,		StackOfTop,	4092h
 LABEL_DESC_DATA32:	Descriptor	0,		Data32Len - 1,	92h
 LABEL_DESC_TSS:		Descriptor	0,		TSSLen - 1,	89h
 LABEL_GATE_CODE:	Gate		SelectorCode32,	0,	0,	0ech
+LABEL_DESC_PAGEDIR:	Descriptor	BasePageDir,	4095,		92h
+LABEL_DESC_PAGETBL:	Descriptor	BasePageTbl,	1023,		8092h
 
 LABEL_DESC_CODE323:	Descriptor	0,		Code323Len - 1,	40f8h
 LABEL_DESC_STACK323:	Descriptor	0,		StackOfTop,	40f2h
@@ -24,6 +29,8 @@ SelectorStack32	equ	LABEL_DESC_STACK32- LABEL_GDT
 SelectorData32	equ	LABEL_DESC_DATA32 - LABEL_GDT
 SelectorTss	equ	LABEL_DESC_TSS    - LABEL_GDT
 SelectorGate	equ	LABEL_GATE_CODE   - LABEL_GDT + 3h
+SelectorDir	equ	LABEL_DESC_PAGEDIR - LABEL_GDT
+SelectorTbl	equ	LABEL_DESC_PAGETBL - LABEL_GDT
 
 SelectorCode323		equ	LABEL_DESC_CODE323 - LABEL_GDT + 3h
 SelectorStack323	equ	LABEL_DESC_STACK323 - LABEL_GDT + 3h
@@ -170,6 +177,10 @@ LABEL_SEG_CODE32:
 	mov ax,SelectorTss
 	ltr ax
 
+	xchg bx,bx
+	call SETPAGE
+	xchg bx,bx
+
 	push SelectorStack323
 	push StackOfTop
 	push SelectorCode323
@@ -191,6 +202,41 @@ LABEL_SEG_CODE32:
 	loop .1
 
 	jmp $
+
+SETPAGE:
+	xor eax,eax
+	mov ax,SelectorDir
+	mov es,ax
+	xor edi,edi
+	mov ecx,1024
+	mov eax,BasePageTbl + 7h
+.2:
+	stosd
+	add eax,4096
+	loop .2
+
+	xor eax,eax
+	mov ax,SelectorTbl
+	mov es,ax
+	xor edi,edi
+	mov ecx,1024*1024
+	mov eax,7h
+.3:
+	stosd
+	add eax,4096
+	loop .3
+
+	xor eax,eax
+	mov eax,BasePageDir
+	mov cr3,eax
+	mov eax,cr0
+	or eax,80000000h
+	mov cr0,eax
+	jmp short .4
+.4:
+	nop
+	ret
+
 Code32Len equ $ - LABEL_SEG_CODE32
 
 [SECTION .b323]
