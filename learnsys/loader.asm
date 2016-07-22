@@ -26,7 +26,8 @@ StackOfTop equ $ - LABEL_SEG_STACK32 - 1
 
 [SECTION .d32]
 LABEL_SEG_DATA32:
-	times 512 db 0
+	_Message1:	db	"hello word!!!"
+	Message1	equ	_Message1 - LABEL_SEG_DATA32
 Data32Len equ $ - LABEL_SEG_DATA32
 
 [SECTION .b16]
@@ -93,9 +94,20 @@ LABEL_SEG_CODE32:
 	mov esp,StackOfTop
 	mov ax,SelectorViode
 	mov gs,ax
-	mov al,'B'
+
+	mov ecx,10
+	xor esi,esi
+	xor edi,edi
+	mov eax,Message1
+	mov esi,eax
+	xor eax,eax
 	mov ah,0ch
-	mov [gs:2],ax
+	cld
+.1:
+	lodsb
+	mov [gs:edi],ax
+	add edi,2
+	loop .1
 
 	jmp $
 Code32Len equ $ - LABEL_SEG_CODE32
