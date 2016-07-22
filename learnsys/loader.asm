@@ -9,6 +9,10 @@ LABEL_DESC_VIODE:	Descriptor	0B8000h,	0FFFFFh,	92h
 LABEL_DESC_STACK32:	Descriptor	0,		StackOfTop,	4092h
 LABEL_DESC_DATA32:	Descriptor	0,		Data32Len - 1,	92h
 LABEL_DESC_TSS:		Descriptor	0,		TSSLen - 1,	89h
+LABEL_GATE_CODE:	Gate		SelectorCode32,	0,	0,	0ech
+
+LABEL_DESC_CODE323:	Descriptor	0,		Code323Len - 1,	40f8h
+LABEL_DESC_STACK323:	Descriptor	0,		StackOfTop,	40f2h
 
 GdtLen equ $ - LABEL_GDT
 GdtPtr	dw	GdtLen - 1
@@ -19,11 +23,16 @@ SelectorViode	equ	LABEL_DESC_VIODE  - LABEL_GDT
 SelectorStack32	equ	LABEL_DESC_STACK32- LABEL_GDT
 SelectorData32	equ	LABEL_DESC_DATA32 - LABEL_GDT
 SelectorTss	equ	LABEL_DESC_TSS    - LABEL_GDT
+SelectorGate	equ	LABEL_GATE_CODE   - LABEL_GDT + 3h
+
+SelectorCode323		equ	LABEL_DESC_CODE323 - LABEL_GDT + 3h
+SelectorStack323	equ	LABEL_DESC_STACK323 - LABEL_GDT + 3h
 
 [SECTION .tss]
 LABEL_SEG_TSS:
-	dd	0	;stackoftop0
-	dd	0	;stack0
+	dd	0	;back
+	dd	StackOfTop	;stackoftop0
+	dd	SelectorStack32	;stack0
 	dd	0	;stackoftop1
 	dd	0	;stack1
 	dd	0	;stackoftop2
@@ -109,7 +118,28 @@ LABEL_BEGIN:
 	shr eax,16
 	mov byte [LABEL_DESC_TSS + 4],al
 	mov byte [LABEL_DESC_TSS + 7],ah
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+	xor eax,eax
+	mov ax,cs
+	shl eax,4
+	add eax,LABEL_SEG_CODE323
+	mov word [LABEL_DESC_CODE323 + 2],ax
+	shr eax,16
+	mov byte [LABEL_DESC_CODE323 + 4],al
+	mov byte [LABEL_DESC_CODE323 + 7],ah
+
+
+	xor eax,eax
+	mov ax,cs
+	shl eax,4
+	add eax,LABEL_SEG_STACK32
+	mov word [LABEL_DESC_STACK323 + 2],ax
+	shr eax,16
+	mov byte [LABEL_DESC_STACK323 + 4],al
+	mov byte [LABEL_DESC_STACK323 + 7],ah
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 	lgdt [GdtPtr]
 
 	cli
@@ -140,6 +170,12 @@ LABEL_SEG_CODE32:
 	mov ax,SelectorTss
 	ltr ax
 
+	push SelectorStack323
+	push StackOfTop
+	push SelectorCode323
+	push 0
+	retf
+
 	mov ecx,10
 	xor esi,esi
 	xor edi,edi
@@ -156,3 +192,11 @@ LABEL_SEG_CODE32:
 
 	jmp $
 Code32Len equ $ - LABEL_SEG_CODE32
+
+[SECTION .b323]
+[BITS 32]
+LABEL_SEG_CODE323:
+	xor eax,eax
+	call SelectorGate:0
+	jmp $
+Code323Len equ	$ - LABEL_SEG_CODE323
