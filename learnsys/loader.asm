@@ -6,8 +6,8 @@ jmp LABEL_BEGIN
 LABEL_GDT:		Descriptor	0,		0,		0
 LABEL_DESC_CODE32:	Descriptor	0,		Code32Len - 1,	4098h
 LABEL_DESC_VIODE:	Descriptor	0B8000h,	0FFFFFh,	92h
-LABEL_DESC_STACK:	Descriptor	0,		StackOfTop,	4092h
-LABEL_DESC_DATA:	Descriptor	0,		0,		0
+LABEL_DESC_STACK32:	Descriptor	0,		StackOfTop,	4092h
+LABEL_DESC_DATA32:	Descriptor	0,		Data32Len - 1,	92h
 
 GdtLen equ $ - LABEL_GDT
 GdtPtr	dw	GdtLen - 1
@@ -15,14 +15,19 @@ GdtPtr	dw	GdtLen - 1
 
 SelectorCode32	equ	LABEL_DESC_CODE32 - LABEL_GDT
 SelectorViode	equ	LABEL_DESC_VIODE  - LABEL_GDT
-SelectorStack	equ	LABEL_DESC_STACK  - LABEL_GDT
+SelectorStack32	equ	LABEL_DESC_STACK32- LABEL_GDT
+SelectorData32	equ	LABEL_DESC_DATA32 - LABEL_GDT
 
 [SECTION .s32]
 [BITS 32]
-LABEL_SEG_STACK:
+LABEL_SEG_STACK32:
 	times 512 db 0
-StackOfTop equ $ - LABEL_SEG_STACK - 1
+StackOfTop equ $ - LABEL_SEG_STACK32 - 1
 
+[SECTION .d32]
+LABEL_SEG_DATA32:
+	times 512 db 0
+Data32Len equ $ - LABEL_SEG_DATA32
 
 [SECTION .b16]
 [BITS 16]
@@ -34,11 +39,6 @@ LABEL_BEGIN:
 	mov fs,ax
 	mov ss,ax
 	mov gs,ax
-	mov ax,0b800h
-	mov es,ax
-	mov al,'A'
-	mov ah,0ch
-	mov [es:0],ax
 
 	xor eax,eax
 	mov ax,cs
@@ -52,11 +52,20 @@ LABEL_BEGIN:
 	xor eax,eax
 	mov ax,cs
 	shl eax,4
-	add eax,LABEL_SEG_STACK
-	mov word [LABEL_DESC_STACK + 2],ax
+	add eax,LABEL_SEG_STACK32
+	mov word [LABEL_DESC_STACK32 + 2],ax
 	shr eax,16
-	mov byte [LABEL_DESC_STACK + 4],al
-	mov byte [LABEL_DESC_STACK + 7],ah
+	mov byte [LABEL_DESC_STACK32 + 4],al
+	mov byte [LABEL_DESC_STACK32 + 7],ah
+
+	xor eax,eax
+	mov ax,cs
+	shl eax,4
+	add eax,LABEL_SEG_DATA32
+	mov word [LABEL_DESC_DATA32 + 2],ax
+	shr eax,16
+	mov byte [LABEL_DESC_DATA32 + 4],al
+	mov byte [LABEL_DESC_DATA32 + 7],ah
 
 	lgdt [GdtPtr]
 
@@ -77,8 +86,10 @@ LABEL_BEGIN:
 [SECTION .b32]
 [BITS 32]
 LABEL_SEG_CODE32:
-	mov ax,SelectorStack
-	mov gs,ax
+	mov ax,SelectorData32
+	mov ds,ax
+	mov ax,SelectorStack32
+	mov ss,ax
 	mov esp,StackOfTop
 	mov ax,SelectorViode
 	mov gs,ax
