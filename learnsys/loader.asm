@@ -23,6 +23,7 @@ LABEL_SEG_STACK:
 	times 512 db 0
 StackOfTop equ $ - LABEL_SEG_STACK - 1
 
+
 [SECTION .b16]
 [BITS 16]
 LABEL_BEGIN:
