@@ -75,8 +75,30 @@ StackOfTop equ $ - LABEL_SEG_STACK32 - 1
 
 [SECTION .d32]
 LABEL_SEG_DATA32:
+	_dwDispPos:	dd	0
 	_Message1:	db	"hello word!!!"
-	Message1	equ	_Message1 - LABEL_SEG_DATA32
+	_MCRNumber:	db	0
+	_MemChkBuf:	times 512 db 0
+	_StructMem:
+		_MemAddrL:	dd	0
+		_MemAddrH:	dd	0
+		_MemLimitL:	dd	0
+		_MemLimitH:	dd	0
+		_MemType:	dd	0
+	_RAMSize:	dd	0
+	_szReturn:	db	0Ah,0
+	dwDispPos	equ	_dwDispPos - LABEL_SEG_DATA32
+	Message1	equ	_Message1  - LABEL_SEG_DATA32
+	MCRNumber	equ	_MCRNumber - LABEL_SEG_DATA32
+	MemChkBuf	equ	_MemChkBuf - LABEL_SEG_DATA32
+	StructMem	equ	_StructMem - $$;LABEL_SEG_DATA32
+		MemAddrL	equ	_MemAddrL  - $$;LABEL_SEG_DATA32
+		MemAddrH	equ	_MemAddrH  - $$;LABEL_SEG_DATA32
+		MemLimitL	equ	_MemLimitL - $$;LABEL_SEG_DATA32
+		MemLimitH	equ	_MemLimitH - $$;LABEL_SEG_DATA32
+		MemType		equ	_MemType   - $$;LABEL_SEG_DATA32
+	RAMSize		equ	_RAMSize   - LABEL_SEG_DATA32
+	szReturn	equ	_szReturn  - LABEL_SEG_DATA32
 Data32Len equ $ - LABEL_SEG_DATA32
 
 [SECTION .b16]
@@ -145,8 +167,9 @@ LABEL_BEGIN:
 	shr eax,16
 	mov byte [LABEL_DESC_STACK323 + 4],al
 	mov byte [LABEL_DESC_STACK323 + 7],ah
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+	call GETMEMSIZE
+
 	lgdt [GdtPtr]
 
 	cli
@@ -163,11 +186,33 @@ LABEL_BEGIN:
 
 	jmp $
 
+GETMEMSIZE:
+	mov ebx,0
+	mov di,_MemChkBuf
+.loop:
+	mov eax,0E820h
+	mov ecx,20
+	mov edx,0534d4150h
+	int 15h
+	jc LABEL_CHK_FAIL
+	add edi,20
+	inc byte [_MCRNumber]
+	cmp bx,0
+	jne .loop
+	jmp LABEL_CHK_OK
+LABEL_CHK_FAIL:
+	mov byte [_MCRNumber],0
+LABEL_CHK_OK:
+	ret
+
+
+
 [SECTION .b32]
 [BITS 32]
 LABEL_SEG_CODE32:
 	mov ax,SelectorData32
 	mov ds,ax
+	mov es,ax
 	mov ax,SelectorStack32
 	mov ss,ax
 	mov esp,StackOfTop
@@ -176,10 +221,17 @@ LABEL_SEG_CODE32:
 
 	mov ax,SelectorTss
 	ltr ax
+	
+	mov edi,[dwDispPos]
+	mov ah,0ch
+	mov al,'A'
+	mov [gs:edi],ax
 
-	xchg bx,bx
 	call SETPAGE
-	xchg bx,bx
+	call DisMemSize
+	mov al,[MCRNumber]
+
+	jmp $
 
 	push SelectorStack323
 	push StackOfTop
@@ -204,6 +256,7 @@ LABEL_SEG_CODE32:
 	jmp $
 
 SETPAGE:
+	push es
 	xor eax,eax
 	mov ax,SelectorDir
 	mov es,ax
@@ -235,8 +288,43 @@ SETPAGE:
 	jmp short .4
 .4:
 	nop
+	pop es
 	ret
 
+DisMemSize:
+	mov ax,SelectorData32
+	mov esi,MemChkBuf
+	mov cl,[MCRNumber]
+.6:
+	push ecx
+	mov edi,StructMem
+	mov ecx,5
+.5:
+	push dword [esi]
+	call DispInt
+	pop eax
+	;stosd
+	mov dword [es:edi],eax
+	add edi,4
+	add esi,4
+	loop .5
+	call DispReturn
+	mov eax,[MemType]
+	cmp eax,01h
+	jne .7
+	mov eax,[MemAddrL]
+	add eax,[MemLimitL]
+	mov [RAMSize],eax
+.7:
+	pop ecx
+	loop .6
+	push dword [RAMSize]
+	call DispInt
+	add esp,4
+	call DispReturn
+	ret
+	
+%include "lib.inc"
 Code32Len equ $ - LABEL_SEG_CODE32
 
 [SECTION .b323]

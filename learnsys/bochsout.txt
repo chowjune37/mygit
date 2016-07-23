@@ -31,7 +31,7 @@
 00000000000i[      ]   SB16 support: no
 00000000000i[      ]   USB support: no
 00000000000i[      ]   VGA extension support: vbe
-00000000000i[MEM0  ] allocated memory at 0xb3b9d008. after alignment, vector=0xb3b9e000
+00000000000i[MEM0  ] allocated memory at 0xb3b95008. after alignment, vector=0xb3b96000
 00000000000i[MEM0  ] 32.00MB
 00000000000i[MEM0  ] mem block size = 0x00100000, blocks=32
 00000000000i[MEM0  ] rom at 0xfffe0000/131072 ('/usr/local/share/bochs/BIOS-bochs-latest')
@@ -41,7 +41,7 @@
 00000000000i[DEV   ] PIIX3 PCI-to-ISA bridge present at device 1, function 0
 00000000000i[PLUGIN] init_dev of 'cmos' plugin device by virtual method
 00000000000i[CMOS  ] Using local time for initial clock
-00000000000i[CMOS  ] Setting initial clock to: Fri Jul 22 16:04:53 2016 (time0=1469174693)
+00000000000i[CMOS  ] Setting initial clock to: Sat Jul 23 17:02:30 2016 (time0=1469264550)
 00000000000i[PLUGIN] init_dev of 'dma' plugin device by virtual method
 00000000000i[DMA   ] channel 4 used by cascade
 00000000000i[PLUGIN] init_dev of 'pic' plugin device by virtual method
@@ -185,36 +185,28 @@
 00001532090i[VBIOS ] VBE Bios $Id: vbe.c,v 1.64 2011/07/19 18:25:05 vruppert Exp $
 00001600001i[XGUI  ] charmap update. Font Height is 16
 00014040198i[BIOS  ] Booting from 0000:7c00
-00014510251i[CPU0  ] [14510251] Stopped on MAGIC BREAKPOINT
-00014510251i[XGUI  ] Mouse capture off
-00014510324i[CPU0  ] [14510324] Stopped on MAGIC BREAKPOINT
-00014510324i[XGUI  ] Mouse capture off
-00014510325i[XGUI  ] Mouse capture off
-00014510326i[XGUI  ] Mouse capture off
-00014510327i[XGUI  ] Mouse capture off
-00014510328i[XGUI  ] Mouse capture off
-00017659147i[CPU0  ] [17659147] Stopped on MAGIC BREAKPOINT
-00017659147i[XGUI  ] Mouse capture off
-00017659148i[XGUI  ] Mouse capture off
-00017659148i[XGUI  ] Mouse capture off
-00017659148i[      ] dbg: Quit
-00017659148i[CPU0  ] CPU is in protected mode (active)
-00017659148i[CPU0  ] CS.mode = 32 bit
-00017659148i[CPU0  ] SS.mode = 32 bit
-00017659148i[CPU0  ] EFER   = 0x00000000
-00017659148i[CPU0  ] | EAX=e0000011  EBX=00000007  ECX=00000000  EDX=00000100
-00017659148i[CPU0  ] | ESP=000001fb  EBP=00007d29  ESI=000e7d1f  EDI=00400000
-00017659148i[CPU0  ] | IOPL=0 id vip vif ac vm rf nt of df if tf SF zf af PF cf
-00017659148i[CPU0  ] | SEG sltr(index|ti|rpl)     base    limit G D
-00017659148i[CPU0  ] |  CS:0008( 0001| 0|  0) 000904bc 000000a6 0 1
-00017659148i[CPU0  ] |  DS:0020( 0004| 0|  0) 000903d0 0000000c 0 0
-00017659148i[CPU0  ] |  SS:0018( 0003| 0|  0) 000901d0 000001ff 0 1
-00017659148i[CPU0  ] |  ES:0040( 0008| 0|  0) 00201000 003fffff 1 0
-00017659148i[CPU0  ] |  FS:9000( 0005| 0|  0) 00090000 0000ffff 0 0
-00017659148i[CPU0  ] |  GS:0010( 0002| 0|  0) 000b8000 000fffff 0 0
-00017659148i[CPU0  ] | EIP=0000002b (0000002b)
-00017659148i[CPU0  ] | CR0=0xe0000011 CR2=0x00000000
-00017659148i[CPU0  ] | CR3=0x00200000 CR4=0x00000000
-00017659148i[CMOS  ] Last time is 1469174697 (Fri Jul 22 16:04:57 2016)
-00017659148i[XGUI  ] Exit
-00017659148i[SIM   ] quit_sim called with exit code 0
+00014782508i[CPU0  ] [14782508] Stopped on MAGIC BREAKPOINT
+00014782508i[XGUI  ] Mouse capture off
+00132620055i[      ] Ctrl-C detected in signal handler.
+00132620056i[XGUI  ] Mouse capture off
+00132620056i[      ] dbg: Quit
+00132620056i[CPU0  ] CPU is in protected mode (active)
+00132620056i[CPU0  ] CS.mode = 32 bit
+00132620056i[CPU0  ] SS.mode = 32 bit
+00132620056i[CPU0  ] EFER   = 0x00000000
+00132620056i[CPU0  ] | EAX=01ff0f06  EBX=00000000  ECX=00000000  EDX=534d4150
+00132620056i[CPU0  ] | ESP=000001ff  EBP=00007d29  ESI=0000008a  EDI=00000226
+00132620056i[CPU0  ] | IOPL=0 id vip vif ac vm rf nt of df if tf sf zf af pf cf
+00132620056i[CPU0  ] | SEG sltr(index|ti|rpl)     base    limit G D
+00132620056i[CPU0  ] |  CS:0008( 0001| 0|  0) 0009070c 000001f2 0 1
+00132620056i[CPU0  ] |  DS:0020( 0004| 0|  0) 000903d0 0000022b 0 0
+00132620056i[CPU0  ] |  SS:0018( 0003| 0|  0) 000901d0 000001ff 0 1
+00132620056i[CPU0  ] |  ES:0020( 0004| 0|  0) 000903d0 0000022b 0 0
+00132620056i[CPU0  ] |  FS:9000( 0005| 0|  0) 00090000 0000ffff 0 0
+00132620056i[CPU0  ] |  GS:0010( 0002| 0|  0) 000b8000 000fffff 0 0
+00132620056i[CPU0  ] | EIP=0000003d (0000003d)
+00132620056i[CPU0  ] | CR0=0xe0000011 CR2=0x00000000
+00132620056i[CPU0  ] | CR3=0x00200000 CR4=0x00000000
+00132620056i[CMOS  ] Last time is 1469264583 (Sat Jul 23 17:03:03 2016)
+00132620056i[XGUI  ] Exit
+00132620056i[SIM   ] quit_sim called with exit code 0
