@@ -31,7 +31,7 @@
 00000000000i[      ]   SB16 support: no
 00000000000i[      ]   USB support: no
 00000000000i[      ]   VGA extension support: vbe
-00000000000i[MEM0  ] allocated memory at 0xb3c39008. after alignment, vector=0xb3c3a000
+00000000000i[MEM0  ] allocated memory at 0xb3be3008. after alignment, vector=0xb3be4000
 00000000000i[MEM0  ] 32.00MB
 00000000000i[MEM0  ] mem block size = 0x00100000, blocks=32
 00000000000i[MEM0  ] rom at 0xfffe0000/131072 ('/usr/local/share/bochs/BIOS-bochs-latest')
@@ -41,7 +41,7 @@
 00000000000i[DEV   ] PIIX3 PCI-to-ISA bridge present at device 1, function 0
 00000000000i[PLUGIN] init_dev of 'cmos' plugin device by virtual method
 00000000000i[CMOS  ] Using local time for initial clock
-00000000000i[CMOS  ] Setting initial clock to: Fri Jul 22 15:34:13 2016 (time0=1469172853)
+00000000000i[CMOS  ] Setting initial clock to: Mon Jul 25 16:07:24 2016 (time0=1469434044)
 00000000000i[PLUGIN] init_dev of 'dma' plugin device by virtual method
 00000000000i[DMA   ] channel 4 used by cascade
 00000000000i[PLUGIN] init_dev of 'pic' plugin device by virtual method
@@ -185,105 +185,28 @@
 00001532090i[VBIOS ] VBE Bios $Id: vbe.c,v 1.64 2011/07/19 18:25:05 vruppert Exp $
 00001600001i[XGUI  ] charmap update. Font Height is 16
 00014040198i[BIOS  ] Booting from 0000:7c00
-00014510251i[CPU0  ] [14510251] Stopped on MAGIC BREAKPOINT
-00014510251i[XGUI  ] Mouse capture off
-00014510252i[XGUI  ] Mouse capture off
-00014510253i[XGUI  ] Mouse capture off
-00014510254i[XGUI  ] Mouse capture off
-00014510255i[XGUI  ] Mouse capture off
-00014510256i[XGUI  ] Mouse capture off
-00014510257i[XGUI  ] Mouse capture off
-00014510258i[XGUI  ] Mouse capture off
-00014510259i[XGUI  ] Mouse capture off
-00014510260i[XGUI  ] Mouse capture off
-00014510261i[XGUI  ] Mouse capture off
-00014510262i[XGUI  ] Mouse capture off
-00014510263i[XGUI  ] Mouse capture off
-00014510264i[XGUI  ] Mouse capture off
-00014510265i[XGUI  ] Mouse capture off
-00014510266i[XGUI  ] Mouse capture off
-00014510267i[XGUI  ] Mouse capture off
-00014510268i[XGUI  ] Mouse capture off
-00014510269i[XGUI  ] Mouse capture off
-00014510270i[XGUI  ] Mouse capture off
-00014510271i[XGUI  ] Mouse capture off
-00014510272i[XGUI  ] Mouse capture off
-00014510273i[XGUI  ] Mouse capture off
-00014510274i[XGUI  ] Mouse capture off
-00014510275i[XGUI  ] Mouse capture off
-00014510276i[XGUI  ] Mouse capture off
-00014510277i[XGUI  ] Mouse capture off
-00014510278i[XGUI  ] Mouse capture off
-00014510279i[XGUI  ] Mouse capture off
-00014510280i[XGUI  ] Mouse capture off
-00014510281i[XGUI  ] Mouse capture off
-00014510282i[XGUI  ] Mouse capture off
-00014510283i[XGUI  ] Mouse capture off
-00014510284i[XGUI  ] Mouse capture off
-00014510285i[XGUI  ] Mouse capture off
-00014510286i[XGUI  ] Mouse capture off
-00014510287i[XGUI  ] Mouse capture off
-00014510288i[XGUI  ] Mouse capture off
-00014510289i[XGUI  ] Mouse capture off
-00014510290i[XGUI  ] Mouse capture off
-00014510291i[XGUI  ] Mouse capture off
-00014510292i[XGUI  ] Mouse capture off
-00014510293i[XGUI  ] Mouse capture off
-00014510294i[XGUI  ] Mouse capture off
-00014510295i[XGUI  ] Mouse capture off
-00014510296i[XGUI  ] Mouse capture off
-00014510297i[XGUI  ] Mouse capture off
-00014510298i[XGUI  ] Mouse capture off
-00014510299i[XGUI  ] Mouse capture off
-00014510300i[XGUI  ] Mouse capture off
-00014510301i[XGUI  ] Mouse capture off
-00014510302i[XGUI  ] Mouse capture off
-00014510303i[XGUI  ] Mouse capture off
-00014510304i[XGUI  ] Mouse capture off
-00014510305i[XGUI  ] Mouse capture off
-00014510306i[XGUI  ] Mouse capture off
-00014510307i[XGUI  ] Mouse capture off
-00014510308i[XGUI  ] Mouse capture off
-00014510309i[XGUI  ] Mouse capture off
-00014510310i[XGUI  ] Mouse capture off
-00014510311i[XGUI  ] Mouse capture off
-00014510312i[XGUI  ] Mouse capture off
-00014510313i[XGUI  ] Mouse capture off
-00014510314i[XGUI  ] Mouse capture off
-00014510315i[XGUI  ] Mouse capture off
-00014510316i[XGUI  ] Mouse capture off
-00014510317i[XGUI  ] Mouse capture off
-00014510318i[XGUI  ] Mouse capture off
-00014510319i[XGUI  ] Mouse capture off
-00014510320i[XGUI  ] Mouse capture off
-00014510321i[XGUI  ] Mouse capture off
-00014510322i[XGUI  ] Mouse capture off
-00014510323i[XGUI  ] Mouse capture off
-00014510324i[XGUI  ] Mouse capture off
-00014510325i[XGUI  ] Mouse capture off
-00014510326i[XGUI  ] Mouse capture off
-00014510327i[XGUI  ] Mouse capture off
-00014510328i[XGUI  ] Mouse capture off
-00014510329i[XGUI  ] Mouse capture off
-00014510330i[XGUI  ] Mouse capture off
-00014510330i[      ] dbg: Quit
-00014510330i[CPU0  ] CPU is in protected mode (active)
-00014510330i[CPU0  ] CS.mode = 32 bit
-00014510330i[CPU0  ] SS.mode = 32 bit
-00014510330i[CPU0  ] EFER   = 0x00000000
-00014510330i[CPU0  ] | EAX=00000000  EBX=00000007  ECX=00090009  EDX=00000100
-00014510330i[CPU0  ] | ESP=000001ef  EBP=00007d29  ESI=000e7d1f  EDI=0000013a
-00014510330i[CPU0  ] | IOPL=0 id vip vif ac vm rf nt of df if tf sf ZF af PF cf
-00014510330i[CPU0  ] | SEG sltr(index|ti|rpl)     base    limit G D
-00014510330i[CPU0  ] |  CS:0008( 0001| 0|  0) 000904ac 0000004a 0 1
-00014510330i[CPU0  ] |  DS:0000( 0004| 0|  0) 000903c0 0000000c 0 0
-00014510330i[CPU0  ] |  SS:0018( 0003| 0|  0) 000901c0 000001ff 0 1
-00014510330i[CPU0  ] |  ES:0000( 0005| 0|  0) 00090000 0000ffff 0 0
-00014510330i[CPU0  ] |  FS:0000( 0005| 0|  0) 00090000 0000ffff 0 0
-00014510330i[CPU0  ] |  GS:0000( 0002| 0|  0) 000b8000 000fffff 0 0
-00014510330i[CPU0  ] | EIP=00000000 (00000000)
-00014510330i[CPU0  ] | CR0=0x60000011 CR2=0x00000000
-00014510330i[CPU0  ] | CR3=0x00000000 CR4=0x00000000
-00014510330i[CMOS  ] Last time is 1469172856 (Fri Jul 22 15:34:16 2016)
-00014510330i[XGUI  ] Exit
-00014510330i[SIM   ] quit_sim called with exit code 0
+00014782508i[CPU0  ] [14782508] Stopped on MAGIC BREAKPOINT
+00014782508i[XGUI  ] Mouse capture off
+00112419288i[      ] Ctrl-C detected in signal handler.
+00112419289i[XGUI  ] Mouse capture off
+00112419289i[      ] dbg: Quit
+00112419289i[CPU0  ] CPU is in protected mode (active)
+00112419289i[CPU0  ] CS.mode = 32 bit
+00112419289i[CPU0  ] SS.mode = 32 bit
+00112419289i[CPU0  ] EFER   = 0x00000000
+00112419289i[CPU0  ] | EAX=00200c42  EBX=00000400  ECX=00000000  EDX=000003f0
+00112419289i[CPU0  ] | ESP=000001e7  EBP=00007d29  ESI=00090819  EDI=00400010
+00112419289i[CPU0  ] | IOPL=0 id vip vif ac vm rf nt of df if tf sf ZF af PF cf
+00112419289i[CPU0  ] | SEG sltr(index|ti|rpl)     base    limit G D
+00112419289i[CPU0  ] |  CS:0008( 0001| 0|  0) 00090758 000002ad 0 1
+00112419289i[CPU0  ] |  DS:0020( 0004| 0|  0) 000903e0 00000265 0 0
+00112419289i[CPU0  ] |  SS:0018( 0003| 0|  0) 000901e0 000001ff 0 1
+00112419289i[CPU0  ] |  ES:0020( 0004| 0|  0) 000903e0 00000265 0 0
+00112419289i[CPU0  ] |  FS:9000( 0005| 0|  0) 00090000 0000ffff 0 0
+00112419289i[CPU0  ] |  GS:0010( 0002| 0|  0) 000b8000 000fffff 0 0
+00112419289i[CPU0  ] | EIP=00000072 (00000072)
+00112419289i[CPU0  ] | CR0=0xe0000011 CR2=0x00000000
+00112419289i[CPU0  ] | CR3=0x00200000 CR4=0x00000000
+00112419289i[CMOS  ] Last time is 1469434072 (Mon Jul 25 16:07:52 2016)
+00112419289i[XGUI  ] Exit
+00112419289i[SIM   ] quit_sim called with exit code 0

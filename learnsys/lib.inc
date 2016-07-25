@@ -120,3 +120,20 @@ DispReturn:
 	ret
 ;; DispReturn 结束
 
+MemCopy:
+	push ebp
+	mov ebp,esp
+	push es
+	push ds
+	mov ax,SelectorFlatRW
+	mov es,ax
+	mov ds,ax
+	mov esi,[ebp + 8]
+	mov edi,[ebp + 12]
+	mov ecx,[ebp + 16]
+	cld
+rep	movsb
+	pop ds
+	pop es
+	pop ebp
+	ret
