@@ -44,6 +44,24 @@ SelectorFlatC	equ	LABEL_DESC_FLAT_C  - LABEL_GDT
 SelectorCode323		equ	LABEL_DESC_CODE323 - LABEL_GDT + 3h
 SelectorStack323	equ	LABEL_DESC_STACK323 - LABEL_GDT + 3h
 
+[SECTION .idt]
+ALIGN 32
+[BITS 32]
+LABEL_IDT:
+
+%rep	32
+	Gate	SelectorCode32,	SpuriousHandler,	0,	8eh
+%endrep
+.20h:	Gate	SelectorCode32, ClockHandler,	0,	8eh
+%rep	95
+	Gate	SelectorCode32,	SpuriousHandler,	0,	8eh
+%endrep
+.80h:	Gate	SelectorCode32,	UserHandler,	0,	8eh
+
+IdtLen	equ	$ - LABEL_IDT
+IdtPtr	dw	IdtLen - 1
+	dd	090000h + LABEL_IDT
+
 [SECTION .tss]
 LABEL_SEG_TSS:
 	dd	0	;back
@@ -183,11 +201,14 @@ LABEL_BEGIN:
 	mov byte [LABEL_DESC_STACK323 + 4],al
 	mov byte [LABEL_DESC_STACK323 + 7],ah
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 	call GETMEMSIZE
 
 	lgdt [GdtPtr]
 
 	cli
+
+	lidt [IdtPtr]
 
 	in al,92h
 	or al,00000010b
@@ -245,6 +266,14 @@ LABEL_SEG_CODE32:
 	call DisMemSize
 	call PageNumber
 	call SETPAGE
+	
+	xchg bx,bx
+	call Init8259A
+	xchg bx,bx
+	int 80h
+	sti
+
+	jmp $
 
 	push demo1Len
 	push 300000h
@@ -283,6 +312,74 @@ LABEL_SEG_CODE32:
 	loop .1
 
 	jmp $
+
+_SpuriousHandler:
+SpuriousHandler	equ	_SpuriousHandler - $$
+	xor ax,ax
+	iretd
+
+_ClockHandler:
+ClockHandler	equ	_ClockHandler - $$
+	inc byte [gs:160*11+80]
+
+	mov al,20h
+	out 20h,al
+	iretd
+
+_UserHandler:
+UserHandler	equ	_UserHandler - $$
+	mov ah,0ch
+	mov al,'U'
+	mov [gs:160*10+80],ax
+	iretd
+
+Init8259A:
+	mov al,011h
+	out 20h,al
+	call io_delay
+
+	out 0A0h,al
+	call io_delay
+;--------------------------
+	mov al,20h
+	out 21h,al
+	call io_delay
+
+	mov al,28h
+	out 0A1h,al
+	call io_delay
+;------------------------
+	mov al,4h
+	out 21h,al
+	call io_delay
+
+	mov al,2h
+	out 0A1h,al
+	call io_delay
+;-----------------------
+	mov al,001h
+	out 21h,al
+	call io_delay
+
+	out 0A1h,al
+	call io_delay
+;----------------------------
+	mov al,11111110b
+	out 21h,al
+	call io_delay
+
+	mov al,11111111b
+	out 0A1h,al
+	call io_delay
+
+	ret
+
+io_delay:
+	nop
+	nop
+	nop
+	nop
+	ret	
 
 demo1:
 	push es
@@ -413,7 +510,7 @@ PageNumber:
 	mov dword [DirNumber],eax
 	ret
 	
-	
+
 %include "lib.inc"
 Code32Len equ $ - LABEL_SEG_CODE32
 
