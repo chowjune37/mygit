@@ -1,0 +1,23 @@
+/**
+ * 文件描述
+ * author:harrischen;
+ * date:;
+ * version:v1;
+ */
+/* ---------------------------------------- 通用 ---------------------------------------- */
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, select, th, td { margin:0; padding:0; }
+body { font-size:medium; line-height:1.5; font-family:Helvetica, sans-serif; }
+button, input, textarea, select { font-size:100%; }
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance:none;
+}
+input::-webkit-input-placeholder { color:#999999; }
+h1, h2, h3, h4, h5, h6, strong, b { font-weight:normal; }
+a, img { -webkit-tap-highlight-color:rgba(0, 0, 0, 0.3); }
+ul, ol { list-style:none; }
+img { border:none; }
+a { color:#3e2e21; text-decoration:none; -webkit-tap-highlight-color:rgba(0 ,0 ,0 , 0.3); }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video { display:block; margin:0; padding:0; }
+
+/*通用配置*/

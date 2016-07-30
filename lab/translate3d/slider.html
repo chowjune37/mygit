@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta content="telephone=no" name="format-detection" />
+
+<title>JavaScript Swipe事件</title>
+<link rel="stylesheet" type="text/css" href="m.css" />
+
+</head>
+<body>
+<div id="J-slider-mod" class="slider-mod">
+	<ul class="slide_wrap">
+		<li class="slide_item">
+			<a href="#jjc_nvshen=init">
+				<img src="http://pics3.paipaiimg.com/update/20130908/index_640x160.jpg" />
+			</a>
+		</li>
+		<li class="slide_item">
+			<a href="#cms=mobile&tid=mobile/2013/index_20028">
+				<img src="http://pics3.paipaiimg.com/update/20130820/index_640-160_1_.jpg" />
+			</a>
+		</li>
+		<li class="slide_item">
+			<a href="#">
+				<img src="http://pics1.paipaiimg.com/update/20130830/index_640_185_sfc.jpg" />
+			</a>
+		</li>
+		<li class="slide_item">
+			<a href="#cms=mobile&tid=mobile/2013/index_44">
+				<img src="http://pics3.paipaiimg.com/update/20130820/index_155555730.jpg" />
+			</a>
+		</li>
+		<li class="slide_item">
+			<a href="#new3=init&type=old">
+				<img src="http://pics3.paipaiimg.com/update/20130820/index_140914519.jpg" />
+			</a>
+		</li>
+	</ul>
+</div>
+
+
+
+<div id="J-slider-menu" class="slider-menu">
+	<ul class="slider-menu-list">
+		<li>
+			<a href="#">
+				<img height="70" src="http://img02.taobaocdn.com/tps/i2/T1Dk6wXahXXXamNNre-140-140.png" width="70" />
+				<span>我的淘宝</span>
+			</a>
+			<a href="#">
+				<img height="70" src="http://img01.taobaocdn.com/tps/i1/T1dSr9XfddXXamNNre-140-140.png" width="70" />
+				<span>天猫</span>
+			</a>
+			<a href="#">
+				<img height="70" src="http://img02.taobaocdn.com/tps/i2/T1.APvXdplXXamNNre-140-140.png" width="70" />
+				<span>聚划算</span>
+			</a>
+			<a href="#">
+				<img height="70" src="http://img03.taobaocdn.com/tps/i3/T1wCV0XAVgXXamNNre-140-140.png" width="70" />
+				<span>微淘</span>
+			</a>
+			<a href="#">
+				<img height="70" src="http://img01.taobaocdn.com/tps/i1/T1GT6uXh4pXXamNNre-140-140.png" width="70" />
+				<span>拇指斗价</span>
+			</a>
+			<a href="#">
+				<img height="70" src="http://img04.taobaocdn.com/tps/i4/T1e4YIXl4eXXamNNre-140-140.png" width="70" />
+				<span>天天特价</span>
+			</a>
+			<a href="#">
+				<img height="70" src="http://img01.taobaocdn.com/tps/i1/T1FJzvXmhoXXamNNre-140-140.png" width="70" />
+				<span>充值中心</span>
+			</a>
+			<a href="#">
+				<img height="70" src="http://img04.taobaocdn.com/tps/i4/T1.SPvXfVhXXamNNre-140-140.png" width="70" />
+				<span>彩票</span>
+			</a>
+		</li>
+		<li>
+			<a href="#">
+				<img class="" height="70" src="http://img01.taobaocdn.com/tps/i1/T1Q86MXlxaXXamNNre-140-140.png" width="70" />
+				<span>身边优惠</span>
+			</a>
+			<a href="#">
+				<img class="" height="70" src="http://img03.taobaocdn.com/tps/i3/T13j2vXXdmXXamNNre-140-140.png" width="70" />
+				<span>类目浏览</span>
+			</a>
+			<a href="#">
+				<img class="" height="70" src="http://img03.taobaocdn.com/tps/i3/T1omnvXnVkXXamNNre-140-140.png" width="70" />
+				<span>收藏夹</span>
+			</a>
+			<a href="#">
+				<img class="" height="70" src="http://img02.taobaocdn.com/tps/i2/T1IG1BXDlgXXamNNre-140-140.png" width="70" />
+				<span>一淘逛街</span>
+			</a>
+			<a href="#">
+				<img class="" height="70" src="http://img04.taobaocdn.com/tps/i4/T10q_wXbdbXXamNNre-140-140.png" width="70" />
+				<span>旅行</span>
+			</a>
+			<a href="#">
+				<img class="" height="70" src="http://img01.taobaocdn.com/tps/i1/T11LvuXX4oXXamNNre-140-140.png" width="70" />
+				<span>软件市场</span>
+			</a>
+			<a href="#">
+				<img class="" height="70" src="http://img04.taobaocdn.com/tps/i4/T1gMLwXj4aXXamNNre-140-140.png" width="70" />
+				<span>付邮试用</span>
+			</a>
+			<a href="#">
+				<img class="" height="70" src="http://img01.taobaocdn.com/tps/i1/T1sgtPXpdbXXamNNre-140-140.png" width="70" />
+				<span>电影票</span>
+			</a>
+		</li>
+	</ul>
+	
+</div>
+<script type="text/javascript" src="swipe.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		var slider_banner = new swipe(document.getElementById('J-slider-mod'), {
+			auto : 5000,
+			control : true
+		});
+
+		var slider_menu = new swipe(document.getElementById('J-slider-menu'),{
+			control : true
+		});
+	}
+</script>
+
+</body>
+</html>
