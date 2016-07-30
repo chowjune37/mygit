@@ -1,3 +1,5 @@
+baseurl: /mygit
+
 # 目录结构
 source:      .
 destination: ./_site
@@ -21,8 +23,8 @@ future:      true
 unpublished: false
 
 # 插件
-whitelist: []
-gems:      []
+#whitelist: []
+#gems:      []
 
 # 转换
 markdown:    kramdown
@@ -32,10 +34,10 @@ excerpt_separator: "\n\n"
 incremental: false
 
 # 服务器选项
-detach:  false
-port:    4000
-host:    127.0.0.1
-baseurl: "" # does not include hostname
+#detach:  false
+#port:    4000
+#host:    127.0.0.1
+#baseurl: "" # does not include hostname
 
 # 输出
 permalink:     date
