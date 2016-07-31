@@ -52,7 +52,7 @@ excerpt_separator: "\n\n"
 incremental: false
 
 # Markdown 处理器
-markdown: redcarpet
+#markdown: redcarpet
 rdiscount:
   extensions: []
 
