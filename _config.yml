@@ -36,6 +36,20 @@ baseurl:    /mygit
 #coderay_bold_every: 10
 #coderay_css: style
 
+# 阅读处理
+safe:         false
+include:      [".htaccess"]
+exclude:      []
+keep_files:   [".git", ".svn"]
+encoding:     "utf-8"
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+
+# 转换
+markdown:    kramdown
+highlighter: rouge
+lsi:         false
+excerpt_separator: "\n\n"
+incremental: false
 
 # Markdown 处理器
 rdiscount:
