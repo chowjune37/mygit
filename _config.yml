@@ -11,6 +11,10 @@ baseurl:    /mygit
 future:       true
 highlighter: pygments
 markdown:     kramdown
+kramdown:
+  input:         GFM
+  auto_ids:      true
+  auto_id_prefix:'id-'
 permalink:    date
 
 #png_dir:      images/latex
