@@ -10,7 +10,7 @@ baseurl:    /mygit
 
 #future:       true
 #highlighter: pygments
-#markdown:     kramdown
+markdown:     kramdown
 #permalink:    date
 
 #png_dir:      images/latex
