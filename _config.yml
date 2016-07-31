@@ -8,82 +8,32 @@ baseurl:    /mygit
 #destination:  ./_site
 #plugins:      ./_plugins
 
-#future:       true
-#highlighter: pygments
-#markdown:     kramdown
-#permalink:    date
+future:       true
+highlighter: pygments
+markdown:     kramdown
+permalink:    date
 
 #png_dir:      images/latex
 #png_url:      /images/latex
 
-#rdiscount:
-#  extensions: []
-
-#redcarpet:
-#  extensions: []
-
-#auto_ids:       true,
-#footnote_nr:    1
-#entity_output:  as_char
-#toc_levels:     1.6
-#use_coderay:    false
-
-#coderay:
-#coderay_wrap: div
-#coderay_line_numbers: inline
-#coderay_line_numbers_start: 1
-#coderay_tab_width: 4
-#coderay_bold_every: 10
-#coderay_css: style
-
-# 阅读处理
-safe:         false
-include:      [".htaccess"]
-exclude:      []
-keep_files:   [".git", ".svn"]
-encoding:     "utf-8"
-markdown_ext: "markdown,mkdown,mkdn,mkd,md"
-
-# 转换
-#markdown:    kramdown
-#highlighter: rouge
-lsi:         false
-excerpt_separator: "\n\n"
-incremental: false
-
-# Markdown 处理器
-#markdown: redcarpet
 rdiscount:
   extensions: []
 
-highlighter: pygments
-markdown: redcarpet
 redcarpet:
-  extensions:
-    - fenced_code_blocks
-    - no_intra_emphasis
-    - strikethrough
-    - autolink
-    - tables
+  extensions: []
 
-#redcarpet:
-#  extensions: [fenced_code_blocks]
+auto_ids:       true,
+footnote_nr:    1
+entity_output:  as_char
+toc_levels:     1.6
+use_coderay:    false
 
-kramdown:
-  auto_ids:       true
-  footnote_nr:    1
-  entity_output:  as_char
-  toc_levels:     1..6
-  smart_quotes:   lsquo,rsquo,ldquo,rdquo
-  enable_coderay: false
-  input: GFM
-
-  coderay:
-    coderay_wrap:              div
-    coderay_line_numbers:      inline
-    coderay_line_number_start: 1
-    coderay_tab_width:         4
-    coderay_bold_every:        10
-    coderay_css:               style
+coderay:
+coderay_wrap: div
+coderay_line_numbers: inline
+coderay_line_numbers_start: 1
+coderay_tab_width: 4
+coderay_bold_every: 10
+coderay_css: style
 
 
