@@ -52,11 +52,12 @@ excerpt_separator: "\n\n"
 incremental: false
 
 # Markdown 处理器
+markdown: redcarpet
 rdiscount:
   extensions: []
 
 redcarpet:
-  extensions: []
+  extensions: [fenced_code_blocks]
 
 kramdown:
   auto_ids:       true
