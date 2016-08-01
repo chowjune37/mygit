@@ -1,5 +1,8 @@
 body {
 	text-align:center;
+}
+
+#divbody {
 	margin:0 auto;
 	weight:168px;
 }
