@@ -1,12 +1,5 @@
-body {
-	text-align:center;
-}
-
-#divbody {
-	margin:0 auto;
-	weight:168px;
-}
-
-table,td,tr {
-	border:1px solid black;
+#container
+{
+margin:auto;
+width:70%
 }
