@@ -18,4 +18,15 @@ BS_VolID	dd	0h
 BS_VolLab	db	'ORANGES.02 '
 BS_FileSysType	db	'FAT12   '
 
+D_RootStartSec	dw	013h
+D_RootNumSec	dw	0Eh
+D_TmpSecAddr	dw	0500h
+D_SearchFileName	db	'LOADER  BIN'
 
+D_FileClus:
+	D_F_LowClus	db	0
+	D_F_HighClus	db	0
+	D_F_LowByte	dw	0
+	D_F_NumClus	db	0
+	D_F_NowFAT	db	0
+	D_F_SD		db	0
