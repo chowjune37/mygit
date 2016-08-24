@@ -31,7 +31,7 @@
 00000000000i[      ]   SB16 support: no
 00000000000i[      ]   USB support: no
 00000000000i[      ]   VGA extension support: vbe
-00000000000i[MEM0  ] allocated memory at 0xb3bdf008. after alignment, vector=0xb3be0000
+00000000000i[MEM0  ] allocated memory at 0xb3c2b008. after alignment, vector=0xb3c2c000
 00000000000i[MEM0  ] 32.00MB
 00000000000i[MEM0  ] mem block size = 0x00100000, blocks=32
 00000000000i[MEM0  ] rom at 0xfffe0000/131072 ('/usr/local/share/bochs/BIOS-bochs-latest')
@@ -41,7 +41,7 @@
 00000000000i[DEV   ] PIIX3 PCI-to-ISA bridge present at device 1, function 0
 00000000000i[PLUGIN] init_dev of 'cmos' plugin device by virtual method
 00000000000i[CMOS  ] Using local time for initial clock
-00000000000i[CMOS  ] Setting initial clock to: Tue Aug 16 13:05:39 2016 (time0=1471323939)
+00000000000i[CMOS  ] Setting initial clock to: Wed Aug 17 13:54:13 2016 (time0=1471413253)
 00000000000i[PLUGIN] init_dev of 'dma' plugin device by virtual method
 00000000000i[DMA   ] channel 4 used by cascade
 00000000000i[PLUGIN] init_dev of 'pic' plugin device by virtual method
@@ -145,114 +145,117 @@
 00000000000i[      ] set SIGINT handler to bx_debug_ctrlc_handler
 00000000000i[XGUI  ] Mouse capture off
 00000004661i[BIOS  ] $Revision: 11761 $ $Date: 2013-08-02 17:59:49 +0200 (Fr, 02. Aug 2013) $
-00000318064i[KBD   ] reset-disable command received
-00000320798i[BIOS  ] Starting rombios32
-00000321232i[BIOS  ] Shutdown flag 0
-00000321827i[BIOS  ] ram_size=0x02000000
-00000322248i[BIOS  ] ram_end=32MB
-00000362765i[BIOS  ] Found 1 cpu(s)
-00000376962i[BIOS  ] bios_table_addr: 0x000fa468 end=0x000fcc00
-00000704759i[PCI   ] i440FX PMC write to PAM register 59 (TLB Flush)
-00001032686i[P2ISA ] PCI IRQ routing: PIRQA# set to 0x0b
-00001032705i[P2ISA ] PCI IRQ routing: PIRQB# set to 0x09
-00001032724i[P2ISA ] PCI IRQ routing: PIRQC# set to 0x0b
-00001032743i[P2ISA ] PCI IRQ routing: PIRQD# set to 0x09
-00001032753i[P2ISA ] write: ELCR2 = 0x0a
-00001033519i[BIOS  ] PIIX3/PIIX4 init: elcr=00 0a
-00001041192i[BIOS  ] PCI: bus=0 devfn=0x00: vendor_id=0x8086 device_id=0x1237 class=0x0600
-00001043462i[BIOS  ] PCI: bus=0 devfn=0x08: vendor_id=0x8086 device_id=0x7000 class=0x0601
-00001045571i[BIOS  ] PCI: bus=0 devfn=0x09: vendor_id=0x8086 device_id=0x7010 class=0x0101
-00001045800i[PIDE  ] new BM-DMA address: 0xc000
-00001046417i[BIOS  ] region 4: 0x0000c000
-00001048442i[BIOS  ] PCI: bus=0 devfn=0x0b: vendor_id=0x8086 device_id=0x7113 class=0x0680
-00001048675i[ACPI  ] new irq line = 11
-00001048687i[ACPI  ] new irq line = 9
-00001048716i[ACPI  ] new PM base address: 0xb000
-00001048730i[ACPI  ] new SM base address: 0xb100
-00001048758i[PCI   ] setting SMRAM control register to 0x4a
-00001212849i[CPU0  ] Enter to System Management Mode
-00001212860i[CPU0  ] RSM: Resuming from System Management Mode
-00001376878i[PCI   ] setting SMRAM control register to 0x0a
-00001391771i[BIOS  ] MP table addr=0x000fa540 MPC table addr=0x000fa470 size=0xc8
-00001393527i[BIOS  ] SMBIOS table addr=0x000fa550
-00001395722i[BIOS  ] ACPI tables: RSDP addr=0x000fa670 ACPI DATA addr=0x01ff0000 size=0xf72
-00001398919i[BIOS  ] Firmware waking vector 0x1ff00cc
-00001400717i[PCI   ] i440FX PMC write to PAM register 59 (TLB Flush)
-00001401445i[BIOS  ] bios_table_cur_addr: 0x000fa694
-00001529062i[VBIOS ] VGABios $Id: vgabios.c,v 1.76 2013/02/10 08:07:03 vruppert Exp $
-00001529133i[BXVGA ] VBE known Display Interface b0c0
-00001529165i[BXVGA ] VBE known Display Interface b0c5
-00001532090i[VBIOS ] VBE Bios $Id: vbe.c,v 1.64 2011/07/19 18:25:05 vruppert Exp $
-00001600001i[XGUI  ] charmap update. Font Height is 16
-00014040198i[BIOS  ] Booting from 0000:7c00
-00014088384i[CPU0  ] [14088384] Stopped on MAGIC BREAKPOINT
-00014088384i[XGUI  ] Mouse capture off
+00000319067i[KBD   ] reset-disable command received
+00000321801i[BIOS  ] Starting rombios32
+00000322235i[BIOS  ] Shutdown flag 0
+00000322830i[BIOS  ] ram_size=0x02000000
+00000323251i[BIOS  ] ram_end=32MB
+00000363726i[BIOS  ] Found 1 cpu(s)
+00000377923i[BIOS  ] bios_table_addr: 0x000fa468 end=0x000fcc00
+00000705720i[PCI   ] i440FX PMC write to PAM register 59 (TLB Flush)
+00001033647i[P2ISA ] PCI IRQ routing: PIRQA# set to 0x0b
+00001033666i[P2ISA ] PCI IRQ routing: PIRQB# set to 0x09
+00001033685i[P2ISA ] PCI IRQ routing: PIRQC# set to 0x0b
+00001033704i[P2ISA ] PCI IRQ routing: PIRQD# set to 0x09
+00001033714i[P2ISA ] write: ELCR2 = 0x0a
+00001034480i[BIOS  ] PIIX3/PIIX4 init: elcr=00 0a
+00001042153i[BIOS  ] PCI: bus=0 devfn=0x00: vendor_id=0x8086 device_id=0x1237 class=0x0600
+00001044423i[BIOS  ] PCI: bus=0 devfn=0x08: vendor_id=0x8086 device_id=0x7000 class=0x0601
+00001046532i[BIOS  ] PCI: bus=0 devfn=0x09: vendor_id=0x8086 device_id=0x7010 class=0x0101
+00001046761i[PIDE  ] new BM-DMA address: 0xc000
+00001047378i[BIOS  ] region 4: 0x0000c000
+00001049403i[BIOS  ] PCI: bus=0 devfn=0x0b: vendor_id=0x8086 device_id=0x7113 class=0x0680
+00001049636i[ACPI  ] new irq line = 11
+00001049648i[ACPI  ] new irq line = 9
+00001049677i[ACPI  ] new PM base address: 0xb000
+00001049691i[ACPI  ] new SM base address: 0xb100
+00001049719i[PCI   ] setting SMRAM control register to 0x4a
+00001213810i[CPU0  ] Enter to System Management Mode
+00001213821i[CPU0  ] RSM: Resuming from System Management Mode
+00001377839i[PCI   ] setting SMRAM control register to 0x0a
+00001392732i[BIOS  ] MP table addr=0x000fa540 MPC table addr=0x000fa470 size=0xc8
+00001394488i[BIOS  ] SMBIOS table addr=0x000fa550
+00001396683i[BIOS  ] ACPI tables: RSDP addr=0x000fa670 ACPI DATA addr=0x01ff0000 size=0xf72
+00001399880i[BIOS  ] Firmware waking vector 0x1ff00cc
+00001401678i[PCI   ] i440FX PMC write to PAM register 59 (TLB Flush)
+00001402406i[BIOS  ] bios_table_cur_addr: 0x000fa694
+00001530023i[VBIOS ] VGABios $Id: vgabios.c,v 1.76 2013/02/10 08:07:03 vruppert Exp $
+00001530094i[BXVGA ] VBE known Display Interface b0c0
+00001530126i[BXVGA ] VBE known Display Interface b0c5
+00001533051i[VBIOS ] VBE Bios $Id: vbe.c,v 1.64 2011/07/19 18:25:05 vruppert Exp $
+00001600002i[XGUI  ] charmap update. Font Height is 16
+00014040199i[BIOS  ] Booting from 0000:7c00
+00014040256i[CPU0  ] [14040256] Stopped on MAGIC BREAKPOINT
+00014040256i[XGUI  ] Mouse capture off
+00014042821i[CPU0  ] [14042821] Stopped on MAGIC BREAKPOINT
+00014042821i[XGUI  ] Mouse capture off
 00014088387i[CPU0  ] [14088387] Stopped on MAGIC BREAKPOINT
 00014088387i[XGUI  ] Mouse capture off
-00014133866i[CPU0  ] [14133866] Stopped on MAGIC BREAKPOINT
-00014133866i[XGUI  ] Mouse capture off
-00014179354i[CPU0  ] [14179354] Stopped on MAGIC BREAKPOINT
-00014179354i[XGUI  ] Mouse capture off
-00014179395i[CPU0  ] [14179395] Stopped on MAGIC BREAKPOINT
-00014179395i[XGUI  ] Mouse capture off
-00014224874i[CPU0  ] [14224874] Stopped on MAGIC BREAKPOINT
-00014224874i[XGUI  ] Mouse capture off
-00014270363i[CPU0  ] [14270363] Stopped on MAGIC BREAKPOINT
-00014270363i[XGUI  ] Mouse capture off
-00014270403i[CPU0  ] [14270403] Stopped on MAGIC BREAKPOINT
-00014270403i[XGUI  ] Mouse capture off
-00014315875i[CPU0  ] [14315875] Stopped on MAGIC BREAKPOINT
-00014315875i[XGUI  ] Mouse capture off
-00014361363i[CPU0  ] [14361363] Stopped on MAGIC BREAKPOINT
-00014361363i[XGUI  ] Mouse capture off
-00014361404i[CPU0  ] [14361404] Stopped on MAGIC BREAKPOINT
-00014361404i[XGUI  ] Mouse capture off
-00014406883i[CPU0  ] [14406883] Stopped on MAGIC BREAKPOINT
-00014406883i[XGUI  ] Mouse capture off
-00014452372i[CPU0  ] [14452372] Stopped on MAGIC BREAKPOINT
-00014452372i[XGUI  ] Mouse capture off
-00014452412i[CPU0  ] [14452412] Stopped on MAGIC BREAKPOINT
-00014452412i[XGUI  ] Mouse capture off
-00014497891i[CPU0  ] [14497891] Stopped on MAGIC BREAKPOINT
-00014497891i[XGUI  ] Mouse capture off
-00014543372i[CPU0  ] [14543372] Stopped on MAGIC BREAKPOINT
-00014543372i[XGUI  ] Mouse capture off
-00014543413i[CPU0  ] [14543413] Stopped on MAGIC BREAKPOINT
-00014543413i[XGUI  ] Mouse capture off
-00014588892i[CPU0  ] [14588892] Stopped on MAGIC BREAKPOINT
-00014588892i[XGUI  ] Mouse capture off
-00014634381i[CPU0  ] [14634381] Stopped on MAGIC BREAKPOINT
-00014634381i[XGUI  ] Mouse capture off
-00014634421i[CPU0  ] [14634421] Stopped on MAGIC BREAKPOINT
-00014634421i[XGUI  ] Mouse capture off
-00014679900i[CPU0  ] [14679900] Stopped on MAGIC BREAKPOINT
-00014679900i[XGUI  ] Mouse capture off
-00014725414i[CPU0  ] [14725414] Stopped on MAGIC BREAKPOINT
-00014725414i[XGUI  ] Mouse capture off
-00052253959i[      ] Ctrl-C detected in signal handler.
-00052253960i[XGUI  ] Mouse capture off
-00052253960i[XGUI  ] Mouse capture off
-00052253960i[XGUI  ] Mouse capture off
-00052253960i[XGUI  ] Mouse capture off
-00052253960i[XGUI  ] Mouse capture off
-00052253960i[      ] dbg: Quit
-00052253960i[CPU0  ] CPU is in real mode (active)
-00052253960i[CPU0  ] CS.mode = 16 bit
-00052253960i[CPU0  ] SS.mode = 16 bit
-00052253960i[CPU0  ] EFER   = 0x00000000
-00052253960i[CPU0  ] | EAX=00000fff  EBX=00000000  ECX=00090002  EDX=00000000
-00052253960i[CPU0  ] | ESP=000000fc  EBP=00000000  ESI=000e050e  EDI=00007c4f
-00052253960i[CPU0  ] | IOPL=0 id vip vif ac vm rf nt of df if tf sf zf af pf cf
-00052253960i[CPU0  ] | SEG sltr(index|ti|rpl)     base    limit G D
-00052253960i[CPU0  ] |  CS:0000( 0004| 0|  0) 00000000 0000ffff 0 0
-00052253960i[CPU0  ] |  DS:0000( 0005| 0|  0) 00000000 0000ffff 0 0
-00052253960i[CPU0  ] |  SS:0000( 0005| 0|  0) 00000000 0000ffff 0 0
-00052253960i[CPU0  ] |  ES:0000( 0005| 0|  0) 00000000 0000ffff 0 0
-00052253960i[CPU0  ] |  FS:0000( 0005| 0|  0) 00000000 0000ffff 0 0
-00052253960i[CPU0  ] |  GS:0000( 0005| 0|  0) 00000000 0000ffff 0 0
-00052253960i[CPU0  ] | EIP=00007dbe (00007dbe)
-00052253960i[CPU0  ] | CR0=0x60000010 CR2=0x00000000
-00052253960i[CPU0  ] | CR3=0x00000000 CR4=0x00000000
-00052253960i[CMOS  ] Last time is 1471323952 (Tue Aug 16 13:05:52 2016)
-00052253960i[XGUI  ] Exit
-00052253960i[SIM   ] quit_sim called with exit code 0
+00014088390i[CPU0  ] [14088390] Stopped on MAGIC BREAKPOINT
+00014088390i[XGUI  ] Mouse capture off
+00014133869i[CPU0  ] [14133869] Stopped on MAGIC BREAKPOINT
+00014133869i[XGUI  ] Mouse capture off
+00014179357i[CPU0  ] [14179357] Stopped on MAGIC BREAKPOINT
+00014179357i[XGUI  ] Mouse capture off
+00014179398i[CPU0  ] [14179398] Stopped on MAGIC BREAKPOINT
+00014179398i[XGUI  ] Mouse capture off
+00014224877i[CPU0  ] [14224877] Stopped on MAGIC BREAKPOINT
+00014224877i[XGUI  ] Mouse capture off
+00014270366i[CPU0  ] [14270366] Stopped on MAGIC BREAKPOINT
+00014270366i[XGUI  ] Mouse capture off
+00014270406i[CPU0  ] [14270406] Stopped on MAGIC BREAKPOINT
+00014270406i[XGUI  ] Mouse capture off
+00014315878i[CPU0  ] [14315878] Stopped on MAGIC BREAKPOINT
+00014315878i[XGUI  ] Mouse capture off
+00014361366i[CPU0  ] [14361366] Stopped on MAGIC BREAKPOINT
+00014361366i[XGUI  ] Mouse capture off
+00014361407i[CPU0  ] [14361407] Stopped on MAGIC BREAKPOINT
+00014361407i[XGUI  ] Mouse capture off
+00014406886i[CPU0  ] [14406886] Stopped on MAGIC BREAKPOINT
+00014406886i[XGUI  ] Mouse capture off
+00014452375i[CPU0  ] [14452375] Stopped on MAGIC BREAKPOINT
+00014452375i[XGUI  ] Mouse capture off
+00014452415i[CPU0  ] [14452415] Stopped on MAGIC BREAKPOINT
+00014452415i[XGUI  ] Mouse capture off
+00014497894i[CPU0  ] [14497894] Stopped on MAGIC BREAKPOINT
+00014497894i[XGUI  ] Mouse capture off
+00014543375i[CPU0  ] [14543375] Stopped on MAGIC BREAKPOINT
+00014543375i[XGUI  ] Mouse capture off
+00014543416i[CPU0  ] [14543416] Stopped on MAGIC BREAKPOINT
+00014543416i[XGUI  ] Mouse capture off
+00014588895i[CPU0  ] [14588895] Stopped on MAGIC BREAKPOINT
+00014588895i[XGUI  ] Mouse capture off
+00014634384i[CPU0  ] [14634384] Stopped on MAGIC BREAKPOINT
+00014634384i[XGUI  ] Mouse capture off
+00014634424i[CPU0  ] [14634424] Stopped on MAGIC BREAKPOINT
+00014634424i[XGUI  ] Mouse capture off
+00014679903i[CPU0  ] [14679903] Stopped on MAGIC BREAKPOINT
+00014679903i[XGUI  ] Mouse capture off
+00014725417i[CPU0  ] [14725417] Stopped on MAGIC BREAKPOINT
+00014725417i[XGUI  ] Mouse capture off
+00048930585i[      ] Ctrl-C detected in signal handler.
+00048930586i[XGUI  ] Mouse capture off
+00048930586i[XGUI  ] Mouse capture off
+00048930586i[XGUI  ] Mouse capture off
+00048930586i[XGUI  ] Mouse capture off
+00048930586i[      ] dbg: Quit
+00048930586i[CPU0  ] CPU is in real mode (active)
+00048930586i[CPU0  ] CS.mode = 16 bit
+00048930586i[CPU0  ] SS.mode = 16 bit
+00048930586i[CPU0  ] EFER   = 0x00000000
+00048930586i[CPU0  ] | EAX=00000fff  EBX=00000000  ECX=00090002  EDX=00000000
+00048930586i[CPU0  ] | ESP=000000fc  EBP=00000000  ESI=000e050e  EDI=00007c4f
+00048930586i[CPU0  ] | IOPL=0 id vip vif ac vm rf nt of df if tf sf zf af pf cf
+00048930586i[CPU0  ] | SEG sltr(index|ti|rpl)     base    limit G D
+00048930586i[CPU0  ] |  CS:0000( 0004| 0|  0) 00000000 0000ffff 0 0
+00048930586i[CPU0  ] |  DS:0000( 0005| 0|  0) 00000000 0000ffff 0 0
+00048930586i[CPU0  ] |  SS:0000( 0005| 0|  0) 00000000 0000ffff 0 0
+00048930586i[CPU0  ] |  ES:0000( 0005| 0|  0) 00000000 0000ffff 0 0
+00048930586i[CPU0  ] |  FS:0000( 0005| 0|  0) 00000000 0000ffff 0 0
+00048930586i[CPU0  ] |  GS:0000( 0005| 0|  0) 00000000 0000ffff 0 0
+00048930586i[CPU0  ] | EIP=00007dc2 (00007dc2)
+00048930586i[CPU0  ] | CR0=0x60000010 CR2=0x00000000
+00048930586i[CPU0  ] | CR3=0x00000000 CR4=0x00000000
+00048930586i[CMOS  ] Last time is 1471413265 (Wed Aug 17 13:54:25 2016)
+00048930586i[XGUI  ] Exit
+00048930586i[SIM   ] quit_sim called with exit code 0

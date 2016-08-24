@@ -4,6 +4,7 @@ nop
 %include "fat12.inc"
 %include "dfun.inc"
 LABEL_BEGIN:
+	xchg bx,bx
 	mov ax,cs
 	mov ds,ax
 	mov es,ax
@@ -20,6 +21,8 @@ LABEL_BEGIN:
 	xor ah,ah
 	xor dl,dl
 	int 13h
+
+	xchg bx,bx
 ;----------------根目录找文件------------
 	mov cx,[D_RootNumSec]
 .1_1:
